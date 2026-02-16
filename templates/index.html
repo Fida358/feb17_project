@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MY CONSTANT</title>
+
+    <script>
+    var password = prompt("Enter the special date (DDMM):");
+
+    if(password !== "1702"){
+        document.body.innerHTML = "<h1 style='color:white; text-align:center; margin-top:20%;'>Access Denied</h1>";
+    }
+</script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url("{{ url_for('static', filename='bg.jpg') }}") no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            font-family: Arial;
+        }
+
+        .container {
+            background: rgba(0,0,0,0.6);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            width: 200px;
+            border-radius: 15px;
+            margin: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #hidden {
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            margin-top: 20px;
+            max-width: 500px;
+        }
+
+        #hidden.show {
+            opacity: 1;
+        }
+
+        body {
+    animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>MY CONSTANT</h1>
+
+    <img src="{{ url_for('static', filename='her.jpg') }}">
+
+    <p>
+        The day a simple conversation turned into something unexpected.
+    </p>
+
+    <button onclick="showMessage()">Reveal</button>
+
+   <div id="hidden">
+    I don’t know when it changed.  
+
+    Maybe somewhere between that first call  
+    and the way I started waiting for your name to light up my screen.  
+
+    February 17 was simple —  
+    but it quietly became special to me.
+</div>
+    <br>
+    <a href="/coriander" style="color:lightgreen;">Secret Page 🌿</a>
+
+</div>
+
+<audio autoplay loop>
+    <source src="{{ url_for('static', filename='song.mp3') }}" type="audio/mpeg">
+</audio>
+
+<script>
+    function showMessage() {
+        document.getElementById("hidden").classList.add("show");
+    }
+</script>
+
+</body>
+</html>
